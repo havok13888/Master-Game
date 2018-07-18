@@ -24,7 +24,7 @@ namespace MasterGame.World
         public BaseTile TileAt(Point position)
         {
             //TODO: Need to do this checking in a smarter way
-            if(position.X < 0 || position.Y > 0 ||
+            if(position.X < 0 || position.Y < 0 ||
               position.X >= 4 || position.Y >= 4)
             {
                 return null;

@@ -17,9 +17,14 @@ namespace MasterGame.Manager
             CurrentMap.LoadMap();
         }
 
+        public BaseTile TileAt(Point position)
+        {
+            return CurrentMap.TileAt(position);
+        }
+
         public bool CanMoveTo(Point position)
         {
-            BaseTile nextTile = CurrentMap.TileAt(position);
+            BaseTile nextTile = TileAt(position);
             if(nextTile == null)
             {
                 return false;

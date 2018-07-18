@@ -15,7 +15,7 @@ namespace MasterGame.Manager
         public void ProcessInput()
         {
             string userInputString = Console.ReadLine().ToLower();
-            if(userInputString.Length > 0)
+            if(userInputString.Length == 1)
             {
                 InputCommandList.Add(GetCommandFromInputString(userInputString));
             }
@@ -29,19 +29,19 @@ namespace MasterGame.Manager
             }
             else if (userInputString.Equals("s"))
             {
-                return InputCommand.MoveUp;
+                return InputCommand.MoveDown;
             }
             else if (userInputString.Equals("a"))
             {
-                return InputCommand.MoveUp;
+                return InputCommand.MoveLeft;
             }
             else if (userInputString.Equals("d"))
             {
-                return InputCommand.MoveUp;
+                return InputCommand.MoveRight;
             }
             else if (userInputString.Equals("x"))
             {
-                return InputCommand.MoveUp;
+                return InputCommand.ExitGame;
             }
 
             return InputCommand.Unknown;

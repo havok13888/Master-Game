@@ -57,6 +57,7 @@ namespace MasterGame.Manager
             if(!MasterWorldManager.CanMoveTo(nextPosition))
             {
                 Console.WriteLine("Cannot Move there!");
+                return;
             }
 
             player.Position = nextPosition;
