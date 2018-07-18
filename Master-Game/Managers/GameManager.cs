@@ -7,9 +7,9 @@ namespace MasterGame.Manager
 {
     public class GameManager
     {
-        EntityManager MasterEntityManager;
-        WorldManager MasterWorldManager;
-        InputManager MasterInputManager;
+        readonly EntityManager MasterEntityManager;
+        readonly WorldManager MasterWorldManager;
+        readonly InputManager MasterInputManager;
         GameState MasterGameState = GameState.Started;
 
         public GameManager(ref EntityManager entityManager, ref WorldManager worldManager, ref InputManager inputManager)
