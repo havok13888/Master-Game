@@ -14,6 +14,7 @@ namespace MasterGame.Manager
 
         public BaseEntity GetPlayer()
         {
+            //Todo: try this return EntityList.FirstOrDefault(e => e.IsPlayerControlled);
             foreach (BaseEntity entity in EntityList)
             {
                 if (entity.PlayerControlled)
