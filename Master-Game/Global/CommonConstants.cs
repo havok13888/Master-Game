@@ -1,7 +1,20 @@
 ﻿using System;
 namespace MasterGame.Global
 {
-    public enum CommonConstants
+    public enum InputCommand
     {
+        Unknown,
+        MoveUp,
+        MoveDown,
+        MoveLeft,
+        MoveRight,
+        ExitGame
+    }
+
+    public enum GameState
+    {
+        Started,
+        Running,
+        Ended
     }
 }

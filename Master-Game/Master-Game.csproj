@@ -30,10 +30,33 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="World\TileType.cs" />
+    <Compile Include="Managers\SystemManager.cs" />
+    <Compile Include="Managers\WorldManager.cs" />
+    <Compile Include="World\BaseTile.cs" />
+    <Compile Include="World\GrassTile.cs" />
+    <Compile Include="World\LavaTile.cs" />
+    <Compile Include="World\Map.cs" />
+    <Compile Include="Managers\EntityManager.cs" />
+    <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\EntityType.cs" />
+    <Compile Include="Entities\HumanEntity.cs" />
+    <Compile Include="Entities\PlayerEntity.cs" />
+    <Compile Include="Global\CommonConstants.cs" />
+    <Compile Include="Managers\InputManager.cs" />
+    <Compile Include="Managers\GameManager.cs" />
+    <Compile Include="Managers\RenderingManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="World\" />
+    <Folder Include="Managers\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Global\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

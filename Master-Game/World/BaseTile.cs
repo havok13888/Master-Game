@@ -1,19 +1,22 @@
 ﻿using System;
-namespace MasterGame
+
+namespace MasterGame.World
 {
     public class BaseTile
     {
-        private TileType m_type;
-        private bool m_passable;
-        private int m_length;
-        private int m_height;
+        public TileType Type { get; internal set; }
+        public bool Passable { get; internal set; }
+        public bool Occupied { get; set; }
+        public int Length { get; internal set; }
+        public int Height { get; internal set; }
 
         public BaseTile(TileType type, bool passable, int length, int height)
         {
-            m_type = type;
-            m_passable = passable;
-            m_length = length;
-            m_height = height;
+            Type = type;
+            Passable = passable;
+            Occupied = false;
+            Length = length;
+            Height = height;
         }
     }
 }

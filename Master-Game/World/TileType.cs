@@ -1,4 +1,4 @@
-﻿namespace MasterGame
+﻿namespace MasterGame.World
 {
     public enum TileType : byte
     {

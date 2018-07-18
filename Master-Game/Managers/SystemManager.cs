@@ -4,12 +4,15 @@ using MasterGame.Entities;
 
 namespace MasterGame.Manager
 {
-    public class GameManager
+    public class SystemManager
     {
-        WorldManager m_worldManager;
-        EntityManager m_entityManager;
+        EntityManager MasterEntityManager;
+        WorldManager MasterWorldManager;
+        InputManager MasterInputManager;
+        GameManager MasterGameManager;
+        RenderingManager MasterRenderingManager;
 
-        public GameManager()
+        public SystemManager()
         {
             CreateManagers();
             LoadManagers();
@@ -17,22 +20,32 @@ namespace MasterGame.Manager
 
         protected void CreateManagers()
         {
-            m_worldManager = new WorldManager();
-            m_entityManager = new EntityManager();
+            MasterEntityManager = new EntityManager();
+            MasterWorldManager = new WorldManager();
+            MasterInputManager = new InputManager();
+            MasterGameManager = new GameManager(ref MasterEntityManager, ref MasterWorldManager, ref MasterInputManager);
+            MasterRenderingManager = new RenderingManager(ref MasterEntityManager, ref MasterWorldManager);
         }
 
         protected void LoadManagers()
         {
-            m_worldManager.LoadWorld();
-            m_entityManager.LoadEntities();
+            MasterWorldManager.Initialize();
+            MasterEntityManager.Initialize();
+        }
+
+        public void ProcessInput()
+        {
+            MasterInputManager.ProcessInput();
         }
 
         public void ProcessGame()
         {
-            if(m_entityManager.IsPlayerAlive())
-            {
-                
-            }
+            MasterGameManager.ProcessGame();
+        }
+
+        public void ProcessGraphics()
+        {
+            MasterRenderingManager.ProcessGraphics();
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using System;
 namespace MasterGame.Entities
 {
-    public class HumanEntity
+    public class HumanEntity : BaseEntity
     {
-        public HumanEntity()
+        public HumanEntity(string name, float healthPoints)
+            : base (EntityType.Human, name, healthPoints, true, true, true, false)
         {
         }
     }

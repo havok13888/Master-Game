@@ -1,4 +1,5 @@
 ﻿using System;
+using MasterGame.Manager;
 
 namespace MasterGame
 {
@@ -6,7 +7,16 @@ namespace MasterGame
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Launching game with args", args);
+
+            SystemManager globalGameManager = new SystemManager();
+
+            while(true) //Game Loop
+            {
+                globalGameManager.ProcessInput();
+                globalGameManager.ProcessGame();
+                globalGameManager.ProcessGraphics();
+            }
         }
     }
 }

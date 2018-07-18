@@ -1,24 +1,35 @@
-﻿using System;
+﻿using System.Drawing;
 
 namespace MasterGame.World
 {
-    public class World
+    public class Map
     {
-        private BaseTile [,] m_map;
+        private BaseTile [,] CurrentMap;
 
-        public World()
+        public Map()
         {
         }
 
-        public void LoadWorld()
+        public void LoadMap()
         {
-            m_map = new BaseTile [4,4]
+            CurrentMap = new BaseTile [4,4]
             {
                 { new GrassTile(1,1), new LavaTile(1, 1), new GrassTile(1, 1), new GrassTile(1, 1) },
                 { new GrassTile(1, 1), new LavaTile(1, 1), new LavaTile(1, 1), new GrassTile(1, 1) },
                 { new GrassTile(1, 1), new GrassTile(1, 1), new LavaTile(1, 1), new GrassTile(1, 1) },
                 { new GrassTile(1, 1), new GrassTile(1, 1), new GrassTile(1, 1), new GrassTile(1, 1) }   
             };
+        }
+
+        public BaseTile TileAt(Point position)
+        {
+            //TODO: Need to do this checking in a smarter way
+            if(position.X < 0 || position.Y > 0 ||
+              position.X >= 4 || position.Y >= 4)
+            {
+                return null;
+            }
+            return CurrentMap[position.X, position.Y];
         }
     }
 }

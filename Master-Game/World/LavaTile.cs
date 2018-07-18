@@ -1,5 +1,6 @@
 ﻿using System;
-namespace MasterGame.Tiles
+
+namespace MasterGame.World
 {
     public class LavaTile : BaseTile
     {
