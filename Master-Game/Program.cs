@@ -7,7 +7,7 @@ namespace MasterGame
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Launching game with args", args);
+            Console.WriteLine("Press Y to start");
 
             SystemManager globalGameManager = new SystemManager();
 

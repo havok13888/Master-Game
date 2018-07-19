@@ -1,5 +1,4 @@
-﻿using System;
-namespace MasterGame.Global
+﻿namespace MasterGame.Global
 {
     public enum InputCommand
     {
@@ -8,7 +7,8 @@ namespace MasterGame.Global
         MoveDown,
         MoveLeft,
         MoveRight,
-        ExitGame
+        ExitGame,
+        RestartGame
     }
 
     public enum GameState

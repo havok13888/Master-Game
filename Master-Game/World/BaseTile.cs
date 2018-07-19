@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MasterGame.World
+﻿namespace MasterGame.World
 {
     public class BaseTile
     {
@@ -9,14 +7,16 @@ namespace MasterGame.World
         public bool Occupied { get; set; }
         public int Length { get; internal set; }
         public int Height { get; internal set; }
+        public float Damage { get; }
 
-        public BaseTile(TileType type, bool passable, int length, int height)
+        public BaseTile(TileType type, bool passable, int length, int height, float damage)
         {
             Type = type;
             Passable = passable;
             Occupied = false;
             Length = length;
             Height = height;
+            Damage = damage;
         }
     }
 }

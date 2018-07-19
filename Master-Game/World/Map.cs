@@ -6,10 +6,6 @@ namespace MasterGame.World
     {
         private BaseTile [,] CurrentMap;
 
-        public Map()
-        {
-        }
-
         public void LoadMap()
         {
             CurrentMap = new BaseTile [4,4]

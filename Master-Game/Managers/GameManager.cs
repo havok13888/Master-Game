@@ -2,6 +2,7 @@
 using System.Drawing;
 using MasterGame.Global;
 using MasterGame.Entities;
+using MasterGame.World;
 
 namespace MasterGame.Manager
 {
@@ -10,7 +11,7 @@ namespace MasterGame.Manager
         readonly EntityManager MasterEntityManager;
         readonly WorldManager MasterWorldManager;
         readonly InputManager MasterInputManager;
-        GameState MasterGameState = GameState.Started;
+        protected GameState MasterGameState = GameState.Started;
 
         public GameManager(ref EntityManager entityManager, ref WorldManager worldManager, ref InputManager inputManager)
         {
@@ -29,6 +30,18 @@ namespace MasterGame.Manager
                 Environment.Exit(0);
             }
 
+            if (command == InputCommand.Unknown)
+            {
+                //If there are no commands to process don't do anything
+                return;
+            }
+
+            if (command == InputCommand.RestartGame)
+            {
+                Console.WriteLine("Lets go!");
+                ResetGame(ref player);
+            }
+
             if (command == InputCommand.ExitGame)
             {
                 Console.WriteLine("Thank you for playing");
@@ -41,13 +54,10 @@ namespace MasterGame.Manager
                 return;
             }
 
-            if (command == InputCommand.Unknown)
-            {
-                //If there are no commands to process don't do anything
-                return;
-            }
-
+            Point currentPosition = player.Position;
             MoveEntities(ref player, command);
+            UpdateTiles(currentPosition, player.Position);
+            UpdateDamage(ref player);
         }
 
         protected void MoveEntities(ref PlayerEntity player, InputCommand command)
@@ -56,7 +66,6 @@ namespace MasterGame.Manager
             Point nextPosition = GetNextPosition(currentPosition, command);
             if(!MasterWorldManager.CanMoveTo(nextPosition))
             {
-                Console.WriteLine("Cannot Move there!");
                 return;
             }
 
@@ -78,6 +87,37 @@ namespace MasterGame.Manager
                 default:
                     return new Point(-1, -1);
             }
+        }
+
+        protected void UpdateTiles(Point prevPos, Point currPos)
+        {
+            BaseTile tile = MasterWorldManager.TileAt(prevPos);
+            if (tile != null)
+            {
+                tile.Occupied = false;
+            }
+
+            tile = MasterWorldManager.TileAt(currPos);
+            if(tile != null)
+            {
+                tile.Occupied = true;
+            }
+        }
+
+        protected void UpdateDamage(ref PlayerEntity player)
+        {
+            BaseTile tile = MasterWorldManager.TileAt(player.Position);
+            if (tile != null)
+            {
+                player.HealthPoints -= tile.Damage;
+            }
+        }
+
+        protected void ResetGame(ref PlayerEntity player)
+        {
+            MasterGameState = GameState.Started;
+            player.Reset();
+
         }
     }
 }

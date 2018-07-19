@@ -1,17 +1,16 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace MasterGame.Entities
 {
     public class BaseEntity
     {
-        public EntityType Type { get; internal set; }
-        public string Name { get; internal set; }
-        public float HealthPoints { get; internal set; }
-        public bool CanCollide { get; internal set; }
-        public bool CanMove { get; internal set; }
-        public bool CanTakeDamage { get; internal set; }
-        public bool PlayerControlled { get; internal set; }
+        public EntityType Type { get; }
+        public string Name { get; }
+        public float HealthPoints { get; set; }
+        public bool CanCollide { get; }
+        public bool CanMove { get; }
+        public bool CanTakeDamage { get; }
+        public bool PlayerControlled { get; }
         public Point Position;
 
         public BaseEntity(EntityType type, string name, float healthPoints, 

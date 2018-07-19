@@ -43,6 +43,10 @@ namespace MasterGame.Manager
             {
                 return InputCommand.ExitGame;
             }
+            else if (userInputString.Equals("y"))
+            {
+                return InputCommand.RestartGame;
+            }
 
             return InputCommand.Unknown;
         }

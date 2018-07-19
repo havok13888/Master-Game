@@ -7,8 +7,8 @@ namespace MasterGame.Manager
 {
     public class RenderingManager
     {
-        EntityManager MasterEntityManager;
-        WorldManager MasterWorldManager;
+        readonly EntityManager MasterEntityManager;
+        readonly WorldManager MasterWorldManager;
 
         public RenderingManager(ref EntityManager entityManager, ref WorldManager worldManager)
         {
@@ -19,7 +19,12 @@ namespace MasterGame.Manager
         public void ProcessGraphics()
         {
             ClearFrame();
-            RenderMap();
+            PlayerEntity player = MasterEntityManager.GetPlayer() as PlayerEntity;
+            if (player != null)
+            {
+                RenderMap(ref player);
+                RenderHud(ref player);
+            }
         }
 
         protected void ClearFrame()
@@ -27,17 +32,12 @@ namespace MasterGame.Manager
             Console.Clear();
         }
 
-        protected void RenderMap()
+        protected void RenderMap(ref PlayerEntity player)
         {
             //Todo: need a better way to do this later
             Point currentPosition = new Point(0, 0);
-            Point playerPosition = new Point(-1, -1);
-            PlayerEntity player = MasterEntityManager.GetPlayer() as PlayerEntity;
-            if(player != null)
-            {
-                playerPosition.X = player.Position.X;
-                playerPosition.Y = player.Position.Y;
-            }
+            Point playerPosition = new Point(player.Position.X, player.Position.Y);
+
             for (int y = 0; y < 4; y++)
             {
                 for (int x = 0; x < 4; x++)
@@ -65,6 +65,20 @@ namespace MasterGame.Manager
                 Console.WriteLine("");
             }
             Console.WriteLine("");
+        }
+
+        protected void RenderHud(ref PlayerEntity player)
+        {
+            if (player.isAlive())
+            {
+                Console.WriteLine("HP: " + player.HealthPoints);
+                Console.WriteLine("Where to next?");
+            }
+            else
+            {
+                Console.WriteLine("You died!");
+                Console.Write("Type X to exit, Y to restart.");
+            }
         }
     }
 }
