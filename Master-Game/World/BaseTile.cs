@@ -2,20 +2,22 @@
 {
     public class BaseTile
     {
-        public TileType Type { get; internal set; }
-        public bool Passable { get; internal set; }
+        public TileType Type { get; }
+        public bool Passable { get; }
         public bool Occupied { get; set; }
-        public int Length { get; internal set; }
-        public int Height { get; internal set; }
+        public int Length { get; }
+        public int Width { get; }
+        public int Elevation { get; }
         public float Damage { get; }
 
-        public BaseTile(TileType type, bool passable, int length, int height, float damage)
+        public BaseTile(TileType type, bool passable, int length, int width, float damage)
         {
             Type = type;
             Passable = passable;
             Occupied = false;
             Length = length;
-            Height = height;
+            Width = width;
+            Elevation = 0;
             Damage = damage;
         }
     }

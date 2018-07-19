@@ -2,8 +2,8 @@
 {
     public class LavaTile : BaseTile
     {
-        public LavaTile(int length, int height)
-            : base (TileType.Lava, true, length, height, 25.0f)
+        public LavaTile(int length, int width)
+            : base (TileType.Lava, true, length, width, 25.0f)
         {
         }
     }
