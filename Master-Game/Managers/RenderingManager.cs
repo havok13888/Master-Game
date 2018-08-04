@@ -59,6 +59,10 @@ namespace MasterGame.Manager
                         else if (tile.Type == TileType.Lava)
                         {
                             Console.Write(" ~ ");
+                        } 
+                        else if(tile.Type == TileType.Water)
+                        {
+                            Console.Write(" + ");
                         }
                     }
                 }
