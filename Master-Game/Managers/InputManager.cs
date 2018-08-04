@@ -14,7 +14,7 @@ namespace MasterGame.Manager
 
         public void ProcessInput()
         {
-            string userInputString = Console.ReadLine().ToLower();
+            string userInputString = Console.ReadKey().KeyChar.ToString().ToLower();
             if(userInputString.Length == 1)
             {
                 InputCommandList.Add(GetCommandFromInputString(userInputString));

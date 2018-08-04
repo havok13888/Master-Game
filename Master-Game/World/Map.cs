@@ -10,7 +10,7 @@ namespace MasterGame.World
         {
             CurrentMap = new BaseTile [4,4]
             {
-                { new GrassTile(1,1), new LavaTile(1, 1), new GrassTile(1, 1), new GrassTile(1, 1) },
+                { new GrassTile(1, 1), new LavaTile(1, 1), new GrassTile(1, 1), new GrassTile(1, 1) },
                 { new GrassTile(1, 1), new LavaTile(1, 1), new LavaTile(1, 1), new GrassTile(1, 1) },
                 { new GrassTile(1, 1), new GrassTile(1, 1), new LavaTile(1, 1), new GrassTile(1, 1) },
                 { new GrassTile(1, 1), new GrassTile(1, 1), new GrassTile(1, 1), new GrassTile(1, 1) }   
