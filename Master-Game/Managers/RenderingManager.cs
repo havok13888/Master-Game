@@ -60,6 +60,10 @@ namespace MasterGame.Manager
                         {
                             Console.Write(" ~ ");
                         }
+                        else if (tile.Type == TileType.Water)
+                        {
+                            Console.Write(" + ");
+                        }
                     }
                 }
                 Console.WriteLine("");

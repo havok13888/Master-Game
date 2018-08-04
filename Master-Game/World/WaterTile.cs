@@ -9,10 +9,9 @@ namespace MasterGame.World
     class WaterTile : BaseTile
     {
         public WaterTile(int length, int width)
-            :base(TileType.Water, false, length, width, -10.0f)
+            :base(TileType.Water, true
+                 , length, width, -10.0f)
         {
-
         }
-
     }
 }
