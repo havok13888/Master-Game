@@ -15,6 +15,7 @@ namespace MasterGame.Manager
         public void ProcessInput()
         {
             string userInputString = Console.ReadKey().KeyChar.ToString().ToLower();
+            Console.WriteLine(""); //This is used to add a line after the character input.
             if(userInputString.Length == 1)
             {
                 InputCommandList.Add(GetCommandFromInputString(userInputString));
