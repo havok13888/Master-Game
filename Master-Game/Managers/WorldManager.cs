@@ -37,5 +37,10 @@ namespace MasterGame.Manager
 
             return false;
         }
+
+        public void ResetTileWhenGameRestarts() {
+            //Call a method in the current Map Class that resets the tiles
+            CurrentMap.ResetTiles();
+        }
     }
 }

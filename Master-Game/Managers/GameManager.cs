@@ -117,7 +117,8 @@ namespace MasterGame.Manager
         {
             MasterGameState = GameState.Started;
             player.Reset();
-
+            //Reset tiles
+            MasterWorldManager.ResetTileWhenGameRestarts();
         }
     }
 }

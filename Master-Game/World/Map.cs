@@ -27,5 +27,17 @@ namespace MasterGame.World
             }
             return CurrentMap[position.X, position.Y];
         }
+
+        public void ResetTiles()
+        {
+            //This method should only run if the game restarts
+            for(int y = 0; y < 4; y++)
+            {
+                for(int x = 0; x < 4; x++)
+                {
+                    CurrentMap[x, y].Occupied = false;
+                }
+            }
+        }
     }
 }
