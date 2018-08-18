@@ -45,7 +45,44 @@ namespace MasterGame.Manager
             if (command == InputCommand.ExitGame)
             {
                 Console.WriteLine("Thank you for playing");
-                Environment.Exit(0);
+
+                //Make sure the player wants to quite the game.
+                string yes = "y", no = "n";
+                Console.WriteLine("Are you sure you want to exit the game? (" + yes + " / " + no + ")");
+                string userFinalInput = Console.ReadKey().KeyChar.ToString().ToLower();
+                Console.WriteLine("");//Add a line after the player input
+                if (userFinalInput.Equals(yes))
+                {
+                    //Exit Game
+                    Environment.Exit(0);
+                }
+                else if (userFinalInput.Equals(no))
+                {
+                    //Restart game
+                    ResetGame(ref player); 
+                } else
+                {
+                    //The key entered was neither yes or no
+                    while (true)
+                    {
+                        Console.WriteLine("Sorry, that input is not supported. Do you want to exit? (" + yes + " / " + no + ")");
+                        userFinalInput = Console.ReadKey().KeyChar.ToString().ToLower();
+                        Console.WriteLine("");//Add a line after the player input
+                        if (userFinalInput.Equals(yes))
+                        {
+                            //Exit Game
+                            Environment.Exit(0);
+                            break;
+                        }
+                        else if (userFinalInput.Equals(no))
+                        {
+                            //Restart game
+                            ResetGame(ref player);
+                            break;
+                        }
+                    }
+                    
+                }
             }
 
             if (!player.isAlive())
