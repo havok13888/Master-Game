@@ -30,6 +30,12 @@ namespace MasterGame.Manager
                             InputCommandList.Add(InputCommand.RestartGame);
                             break;
                         }
+                        else if (Console.ReadKey(true).Key == ConsoleKey.X)
+                        {
+                            startGame = false;
+                            InputCommandList.Add(InputCommand.ExitGame);
+                            break;
+                        }
                     }
                 }
             }
