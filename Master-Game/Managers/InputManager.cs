@@ -36,7 +36,7 @@ namespace MasterGame.Manager
             else
             {
                 Stopwatch stopwatch = Stopwatch.StartNew();
-                string userInputString = String.Empty;
+                string userInputString = "p";
                 while (stopwatch.Elapsed.Seconds < 1)
                 {
                     if (Console.KeyAvailable)
@@ -49,8 +49,9 @@ namespace MasterGame.Manager
                         Thread.Sleep(100);
                     }
                 }
-                userInputString = String.IsNullOrWhiteSpace(userInputString) ? ConsoleKey.Z.ToString().ToLower() : userInputString;
 
+                stopwatch.Stop();
+                
                 if (userInputString.Length == 1)
                 {
                     InputCommandList.Add(GetCommandFromInputString(userInputString));
@@ -84,7 +85,7 @@ namespace MasterGame.Manager
             {
                 return InputCommand.RestartGame;
             }
-            else if (userInputString.Equals("z"))
+            else if (userInputString.Equals("p"))
             {
                 return InputCommand.Stay;
             }
