@@ -3,6 +3,7 @@
     public enum InputCommand
     {
         Unknown,
+        Stay,
         MoveUp,
         MoveDown,
         MoveLeft,

@@ -1,23 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
+using System.Timers;
 using MasterGame.Global;
 
 namespace MasterGame.Manager
 {
     public class InputManager
     {
+        bool startGame = true;
         List<InputCommand> InputCommandList = new List<InputCommand>();
-
+        
         public InputManager()
         {
         }
 
         public void ProcessInput()
         {
-            string userInputString = Console.ReadKey().KeyChar.ToString().ToLower();
-            if(userInputString.Length == 1)
+            if (startGame)
             {
-                InputCommandList.Add(GetCommandFromInputString(userInputString));
+                while (true)
+                {
+                    if (Console.KeyAvailable)
+                    {
+                        if (Console.ReadKey(true).Key == ConsoleKey.Y)
+                        {
+                            startGame = false;
+                            InputCommandList.Add(InputCommand.RestartGame);
+                            break;
+                        }
+                        else if (Console.ReadKey(true).Key == ConsoleKey.X)
+                        {
+                            startGame = false;
+                            InputCommandList.Add(InputCommand.ExitGame);
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Stopwatch stopwatch = Stopwatch.StartNew();
+                string userInputString = "p";
+                while (stopwatch.Elapsed.Seconds < 1)
+                {
+                    if (Console.KeyAvailable)
+                    {
+                        userInputString = Console.ReadKey(true).KeyChar.ToString().ToLower();
+                        break;
+                    }
+                    else
+                    {
+                        Thread.Sleep(100);
+                    }
+                }
+
+                stopwatch.Stop();
+                
+                if (userInputString.Length == 1)
+                {
+                    InputCommandList.Add(GetCommandFromInputString(userInputString));
+                }
             }
         }
 
@@ -46,6 +90,10 @@ namespace MasterGame.Manager
             else if (userInputString.Equals("y"))
             {
                 return InputCommand.RestartGame;
+            }
+            else if (userInputString.Equals("p"))
+            {
+                return InputCommand.Stay;
             }
 
             return InputCommand.Unknown;

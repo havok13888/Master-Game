@@ -3,6 +3,7 @@ using System.Drawing;
 using MasterGame.Global;
 using MasterGame.Entities;
 using MasterGame.World;
+using System.Threading;
 
 namespace MasterGame.Manager
 {
@@ -40,11 +41,15 @@ namespace MasterGame.Manager
             {
                 Console.WriteLine("Lets go!");
                 ResetGame(ref player);
+                MasterGameState = GameState.Running;
             }
 
             if (command == InputCommand.ExitGame)
             {
-                Console.WriteLine("Thank you for playing");
+                MasterGameState = GameState.Ended;
+                Console.Clear();
+                Console.WriteLine("Thank you for playing!");
+                Thread.Sleep(2000);
                 Environment.Exit(0);
             }
 
@@ -54,10 +59,13 @@ namespace MasterGame.Manager
                 return;
             }
 
-            Point currentPosition = player.Position;
-            MoveEntities(ref player, command);
-            UpdateTiles(currentPosition, player.Position);
-            UpdateDamage(ref player);
+            if (MasterGameState == GameState.Running)
+            {
+                Point currentPosition = player.Position;
+                MoveEntities(ref player, command);
+                UpdateTiles(currentPosition, player.Position);
+                UpdateDamage(ref player);
+            }
         }
 
         protected void MoveEntities(ref PlayerEntity player, InputCommand command)
@@ -84,6 +92,8 @@ namespace MasterGame.Manager
                     return new Point(currentPosition.X - 1, currentPosition.Y);
                 case InputCommand.MoveRight:
                     return new Point(currentPosition.X + 1, currentPosition.Y);
+                case InputCommand.Stay:
+                    return currentPosition;
                 default:
                     return new Point(-1, -1);
             }
@@ -115,7 +125,6 @@ namespace MasterGame.Manager
 
         protected void ResetGame(ref PlayerEntity player)
         {
-            MasterGameState = GameState.Started;
             player.Reset();
             //Reset tiles
             MasterWorldManager.ResetTileWhenGameRestarts();
