@@ -53,6 +53,8 @@
     <Compile Include="Managers\RenderingManager.cs" />
     <Compile Include="World\WaterTile.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Collectable\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
