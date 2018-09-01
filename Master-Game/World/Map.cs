@@ -16,7 +16,6 @@ namespace MasterGame.World
             MapData loadedMap = LoadJson();
             int Rows = loadedMap.rows;
             int Cols = loadedMap.cols;
-            //Tiles currentTile = loadedMap.tiles[i];
 
 
             CurrentMap = new BaseTile[4,4]
@@ -40,7 +39,7 @@ namespace MasterGame.World
             {
                 return null;
             }
-            return CurrentMap[position.X, position.Y];
+            return CurrentMap[position.Y, position.X]; //X - Horizontal , Y- vertical
         }
 
         public void ResetTiles()
@@ -123,15 +122,15 @@ namespace MasterGame.World
         private BaseTile GetTile(int typeNum)
         {
 
-            if(TileType.Grass.GetHashCode() == typeNum)
+            if((int)TileType.Grass == typeNum)
             {
                 return new GrassTile(1, 1);
             } 
-            else if (TileType.Lava.GetHashCode() == typeNum)
+            else if ((int)TileType.Lava == typeNum)
             {
                 return new LavaTile(1, 1);
             } 
-            else if (TileType.Water.GetHashCode() == typeNum)
+            else if ((int)TileType.Water== typeNum)
             {
                 return new WaterTile(1, 1);
             }
