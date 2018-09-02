@@ -57,6 +57,7 @@
     <Compile Include="World\WaterTile.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Maps\TreasureHunterTimBasicMap.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
