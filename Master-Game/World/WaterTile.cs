@@ -8,8 +8,8 @@ namespace MasterGame.World
 {
     class WaterTile : BaseTile
     {
-        public WaterTile(int length, int width)
-            :base(TileType.Water, true, length, width, -5.0f)
+        public WaterTile()
+            :base(TileType.Water, true, -5.0f)
         {
 
         }
