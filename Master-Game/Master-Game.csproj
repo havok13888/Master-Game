@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="World\TileFactory.cs" />
     <Compile Include="World\TileType.cs" />
     <Compile Include="Managers\SystemManager.cs" />
     <Compile Include="Managers\WorldManager.cs" />

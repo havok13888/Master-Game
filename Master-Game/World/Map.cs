@@ -17,15 +17,11 @@ namespace MasterGame.World
 
             CurrentMap = new BaseTile[4,4]
             {
-                { GetTile(loadedMap.tiles[0].Type), GetTile(loadedMap.tiles[1].Type), GetTile(loadedMap.tiles[2].Type), GetTile(loadedMap.tiles[3].Type) },
-                { GetTile(loadedMap.tiles[4].Type), GetTile(loadedMap.tiles[5].Type), GetTile(loadedMap.tiles[6].Type), GetTile(loadedMap.tiles[7].Type) },
-                { GetTile(loadedMap.tiles[8].Type), GetTile(loadedMap.tiles[9].Type), GetTile(loadedMap.tiles[10].Type), GetTile(loadedMap.tiles[11].Type) },
-                { GetTile(loadedMap.tiles[12].Type), GetTile(loadedMap.tiles[13].Type), GetTile(loadedMap.tiles[14].Type), GetTile(loadedMap.tiles[15].Type) }
+                { TileFactory.CreateTile((TileType) loadedMap.tiles[0].type), TileFactory.CreateTile((TileType) loadedMap.tiles[1].type), TileFactory.CreateTile((TileType) loadedMap.tiles[2].type), TileFactory.CreateTile((TileType) loadedMap.tiles[3].type) },
+                { TileFactory.CreateTile((TileType) loadedMap.tiles[4].type), TileFactory.CreateTile((TileType) loadedMap.tiles[5].type), TileFactory.CreateTile((TileType) loadedMap.tiles[6].type), TileFactory.CreateTile((TileType) loadedMap.tiles[7].type) },
+                { TileFactory.CreateTile((TileType) loadedMap.tiles[8].type), TileFactory.CreateTile((TileType) loadedMap.tiles[9].type), TileFactory.CreateTile((TileType) loadedMap.tiles[10].type), TileFactory.CreateTile((TileType) loadedMap.tiles[11].type) },
+                { TileFactory.CreateTile((TileType) loadedMap.tiles[12].type), TileFactory.CreateTile((TileType) loadedMap.tiles[13].type), TileFactory.CreateTile((TileType) loadedMap.tiles[14].type), TileFactory.CreateTile((TileType) loadedMap.tiles[15].type) }
             };
-
-
-
-           
         }
 
         public BaseTile TileAt(Point position)
@@ -57,61 +53,50 @@ namespace MasterGame.World
             string filePath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) + "\\Assets\\Maps\\" + fileName;
             using (StreamReader reader = new StreamReader(filePath))
             {
-                string myJson = reader.ReadToEnd();
-                MapData mapData = JsonConvert.DeserializeObject<MapData>(myJson);
-                return mapData;
+                string jsonStringData = reader.ReadToEnd();
+
+                if (!jsonStringData.Equals(""))
+                {
+                    return JsonConvert.DeserializeObject<MapData>(jsonStringData);
+                }
+                else
+                {
+                    return null; //String data value cannot be empty.
+                }
+                
             }
         }
 
         public class MapData
         {
-            //Name
             public string name { get; set; }
-            //Version
             public string version { get; set; }
-            //row
             public int rows { get; set; }
-            //col
             public int cols { get; set; }
-            //Tiles
             public Tiles [] tiles { get; set; }
-            //Entities
             public Entities[] entities { get; set; }
-
-            public int GetRows()
-            {
-                return rows;
-            }
         }
 
         public class Tiles
         {
-            [JsonProperty("type")]
-            public int Type;
+            public int type;
 
-            [JsonProperty("x")]
-            public int xCor;
+            public int xCoord;
 
-            [JsonProperty("y")]
-            public int yCor;
+            public int yCoord;
         }
 
         public class Entities
         {
-            [JsonProperty("type")]
-            public string Type;
+            public string type;
 
-            [JsonProperty("name")]
-            public string Name;
+            public string name;
 
-            [JsonProperty("healthPoints")]
-            public string HealthPoints;
+            public string healthPoints;
 
-            [JsonProperty("x")]
-            public string xCor;
+            public string xCoord;
 
-            [JsonProperty("y")]
-            public string yCor;
+            public string yCoord;
         }
 
         private BaseTile GetTile(int typeNum)
