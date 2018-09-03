@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 
@@ -9,13 +7,12 @@ namespace MasterGame.World
     public class Map
     {
         private BaseTile [,] CurrentMap;
-        //private List<List<BaseTile>> MyCurrentMap;
 
         public void LoadMap()
         {
             MapData loadedMap = LoadJson();
-            int Rows = loadedMap.rows;
-            int Cols = loadedMap.cols;
+            int rows = loadedMap.rows;
+            int cols = loadedMap.cols;
 
 
             CurrentMap = new BaseTile[4,4]
@@ -58,8 +55,6 @@ namespace MasterGame.World
         {
             string fileName = "Jay01.json";
             string filePath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) + "\\Assets\\Maps\\" + fileName;
-            FileInfo f = new FileInfo(fileName);
-            string fullName = f.Name;
             using (StreamReader reader = new StreamReader(filePath))
             {
                 string myJson = reader.ReadToEnd();

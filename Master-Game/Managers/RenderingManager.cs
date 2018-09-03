@@ -54,17 +54,14 @@ namespace MasterGame.Manager
                     {
                         if(tile.Type == TileType.Grass)
                         {
-                            //Console.Write(" ^ ");
                             Console.Write(" G ");
                         }
                         else if (tile.Type == TileType.Lava)
                         {
-                            //Console.Write(" ~ ");
                             Console.Write(" L ");
                         } 
                         else if(tile.Type == TileType.Water)
                         {
-                            //Console.Write(" + ");
                             Console.Write(" W ");
                         }
                     }
