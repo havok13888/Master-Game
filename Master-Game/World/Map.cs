@@ -13,8 +13,6 @@ namespace MasterGame.World
             MapData loadedMap = LoadJson();
             int rows = loadedMap.rows;
             int cols = loadedMap.cols;
-
-
             CurrentMap = new BaseTile[4,4]
             {
                 { TileFactory.CreateTile((TileType) loadedMap.tiles[0].type), TileFactory.CreateTile((TileType) loadedMap.tiles[1].type), TileFactory.CreateTile((TileType) loadedMap.tiles[2].type), TileFactory.CreateTile((TileType) loadedMap.tiles[3].type) },
@@ -62,8 +60,7 @@ namespace MasterGame.World
                 else
                 {
                     return null; //String data value cannot be empty.
-                }
-                
+                }                
             }
         }
 
@@ -80,44 +77,17 @@ namespace MasterGame.World
         public class Tiles
         {
             public int type;
-
             public int xCoord;
-
             public int yCoord;
         }
 
         public class Entities
         {
             public string type;
-
             public string name;
-
             public string healthPoints;
-
             public string xCoord;
-
             public string yCoord;
-        }
-
-        private BaseTile GetTile(int typeNum)
-        {
-
-            if((int)TileType.Grass == typeNum)
-            {
-                return new GrassTile(1, 1);
-            } 
-            else if ((int)TileType.Lava == typeNum)
-            {
-                return new LavaTile(1, 1);
-            } 
-            else if ((int)TileType.Water== typeNum)
-            {
-                return new WaterTile(1, 1);
-            }
-            else
-            {
-                return null;
-            }
         }
     }
 }
