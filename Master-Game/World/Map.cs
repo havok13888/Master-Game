@@ -48,7 +48,7 @@ namespace MasterGame.World
         public MapData LoadJson()
         {
             string fileName = "Jay01.json";
-            string filePath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) + "\\Assets\\Maps\\" + fileName;
+            string filePath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) + "/Assets/Maps/" + fileName;
             using (StreamReader reader = new StreamReader(filePath))
             {
                 string jsonStringData = reader.ReadToEnd();
