@@ -13,11 +13,11 @@ namespace MasterGame.World
             switch (tileType)
             {
                 case TileType.Grass:
-                    return new GrassTile(1, 1);
+                    return new GrassTile();
                 case TileType.Lava:
-                    return new LavaTile(1, 1);
+                    return new LavaTile();
                 case TileType.Water:
-                    return new WaterTile(1, 1);
+                    return new WaterTile();
                 default:
                     return null;
             }
