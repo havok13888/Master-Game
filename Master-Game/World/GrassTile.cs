@@ -2,8 +2,8 @@
 {
     public class GrassTile : BaseTile
     {
-        public GrassTile(int length, int width) 
-            : base(TileType.Grass, true, length, width, 0.0f)
+        public GrassTile() 
+            : base(TileType.Grass, true, 0.0f)
         {
         }
     }
