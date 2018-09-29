@@ -58,6 +58,7 @@
     <Compile Include="World\WaterTile.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Maps\TreasureHunterTimBasicMap.json" />
     <None Include="Assets\Maps\Jay01.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
