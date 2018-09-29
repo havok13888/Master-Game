@@ -1,0 +1,97 @@
+﻿{
+  "name": "Josh's Map",
+  "version": "1.0",
+  "rows": 4,
+  "cols": 4,
+  "Tiles": [
+    {
+      "type": 1,
+      "xCoord": 0,
+      "yCoord": 0
+    },
+    {
+      "type": 3,
+      "xCoord": 1,
+      "yCoord": 0
+    },
+    {
+      "type": 1,
+      "xCoord": 2,
+      "yCoord": 0
+    },
+    {
+      "type": 1,
+      "xCoord": 3,
+      "yCoord": 0
+    },
+    {
+      "type": 2,
+      "xCoord": 0,
+      "yCoord": 1
+    },
+    {
+      "type": 2,
+      "xCoord": 1,
+      "yCoord": 1
+    },
+    {
+      "type": 2,
+      "xCoord": 2,
+      "yCoord": 1
+    },
+    {
+      "type": 2,
+      "xCoord": 3,
+      "yCoord": 1
+    },
+    {
+      "type": 3,
+      "xCoord": 0,
+      "yCoord": 2
+    },
+    {
+      "type": 3,
+      "xCoord": 1,
+      "yCoord": 2
+    },
+    {
+      "type": 3,
+      "xCoord": 2,
+      "yCoord": 2
+    },
+    {
+      "type": 3,
+      "xCoord": 3,
+      "yCoord": 2
+    },
+    {
+      "type": 1,
+      "xCoord": 0,
+      "yCoord": 3
+    },
+    {
+      "type": 2,
+      "xCoord": 1,
+      "yCoord": 3
+    },
+    {
+      "type": 3,
+      "xCoord": 2,
+      "yCoord": 3
+    },
+    {
+      "type": 1,
+      "xCoord": 3,
+      "yCoord": 3
+    }
+  ], 
+  "Entities": [
+    {
+      "type": 1,
+      "name": "Explorer Josh",
+      "healthPoints": 100.0,
+      "xCoord": 0,
+      "yCoord": 0
+    }
+  ]
+}
