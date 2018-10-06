@@ -7,23 +7,14 @@ namespace MasterGame.World
 {
     public class Map
     {
-        private BaseTile [,] CurrentMap;
+        private List<MapRow> CurrentMapList = new List<MapRow>();
 
         public void LoadMap()
         {
-            MapData loadedMap = LoadJson();
-            int  rows = loadedMap.rows;
-            int cols = loadedMap.cols;
-            CurrentMap = new BaseTile[4, 4]
-            {
-                { TileFactory.CreateTile((TileType) loadedMap.tiles[0].type), TileFactory.CreateTile((TileType) loadedMap.tiles[1].type), TileFactory.CreateTile((TileType) loadedMap.tiles[2].type), TileFactory.CreateTile((TileType) loadedMap.tiles[3].type) },
-                { TileFactory.CreateTile((TileType) loadedMap.tiles[4].type), TileFactory.CreateTile((TileType) loadedMap.tiles[5].type), TileFactory.CreateTile((TileType) loadedMap.tiles[6].type), TileFactory.CreateTile((TileType) loadedMap.tiles[7].type) },
-                { TileFactory.CreateTile((TileType) loadedMap.tiles[8].type), TileFactory.CreateTile((TileType) loadedMap.tiles[9].type), TileFactory.CreateTile((TileType) loadedMap.tiles[10].type), TileFactory.CreateTile((TileType) loadedMap.tiles[11].type) },
-                { TileFactory.CreateTile((TileType) loadedMap.tiles[12].type), TileFactory.CreateTile((TileType) loadedMap.tiles[13].type), TileFactory.CreateTile((TileType) loadedMap.tiles[14].type), TileFactory.CreateTile((TileType) loadedMap.tiles[15].type) }
-            };
-
-            MapRow testRow = new MapRow(0, 4, loadedMap);
-            BaseTile testTile = testRow.GetTileRowList()[0];
+            MapData loadedMapData = LoadJson();
+            int  rows = loadedMapData.rows;
+            int cols = loadedMapData.cols;
+            BuildMapList(rows, cols, loadedMapData);
         }
 
         public BaseTile TileAt(Point position)
@@ -34,7 +25,7 @@ namespace MasterGame.World
             {
                 return null;
             }
-            return CurrentMap[position.Y, position.X]; //X - Horizontal , Y- vertical
+            return GetTileAtLocation(position.X, position.Y);
         }
 
         public void ResetTiles()
@@ -44,7 +35,7 @@ namespace MasterGame.World
             {
                 for(int x = 0; x < 4; x++)
                 {
-                    CurrentMap[x, y].Occupied = false;
+                    GetTileAtLocation(x, y).Occupied = false;
                 }
             }
         }
@@ -103,16 +94,16 @@ namespace MasterGame.World
             /// <summary>
             /// This is number of columns in the row
             /// </summary>
-            private int rowLength; 
+            private int colNum; 
 
             private List<BaseTile> tileRowList = new List<BaseTile>();
 
             private MapData loadedMap;
 
-            public MapRow(int RowNumindex, int RowLength, MapData LoadedMap)
+            public MapRow(int RowNumindex, int ColNum, MapData LoadedMap)
             {
                 rowNumIndex = RowNumindex;
-                rowLength = RowLength;
+                colNum = ColNum;
                 loadedMap = LoadedMap;
                 BuildTileRow();
             }
@@ -120,6 +111,11 @@ namespace MasterGame.World
             public List<BaseTile> GetTileRowList()
             {
                 return tileRowList;
+            }
+
+            public BaseTile GetTileAtCor(int xCor)
+            {
+                return tileRowList[xCor];
             }
 
             /// <summary>
@@ -136,11 +132,10 @@ namespace MasterGame.World
                     }
                 }
                 
-                if (tempList.Count == rowLength) 
+                if (tempList.Count == colNum) 
                 {
                     //Need to make sure the tiles on in the correct order (e.g., the first tile should have x-cor =0, and then third tile should have x-cor = 2
-                    bool isCorrectOrder = true;
-                    for(int j =0; j < rowLength; j++)
+                    for(int j =0; j < colNum; j++)
                     {
                         
                         Tiles currentTile = loadedMap.tiles[j];
@@ -163,10 +158,28 @@ namespace MasterGame.World
                 {
                     throw new System.InvalidOperationException("The number of tiles in row " + 
                         rowNumIndex.ToString() + 
-                        " does not equal the desiered row length, which is (" + rowLength + ")." +
+                        " does not equal the desiered row length, which is (" + colNum + ")." +
                         "May need to add or remove tiles in JSON map data.");
                 }
             }
+        }
+
+        private void BuildMapList(int RowNum, int ColNum, MapData LoadedMapData)
+        {
+            
+            List <MapRow> mapList = new List<MapRow>();
+            for(int i =0; i < RowNum; i++)
+            {
+                MapRow newMapRow = new MapRow(i, ColNum, LoadedMapData);
+                mapList.Add(newMapRow);
+            }
+            CurrentMapList = mapList;
+        }
+
+        private BaseTile GetTileAtLocation(int xCor, int yCor)
+        {
+            MapRow currentRow = CurrentMapList[yCor];
+            return currentRow.GetTileAtCor(xCor);            
         }
     }
 }
