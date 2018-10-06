@@ -9,11 +9,14 @@ namespace MasterGame.World
     {
         private List<MapRow> CurrentMapList = new List<MapRow>();
 
+        int rows = 0;
+        int cols = 0;
+
         public void LoadMap()
         {
             MapData loadedMapData = LoadJson();
-            int  rows = loadedMapData.rows;
-            int cols = loadedMapData.cols;
+            rows = loadedMapData.rows;
+            cols = loadedMapData.cols;
             BuildMapList(rows, cols, loadedMapData);
         }
 
@@ -21,7 +24,7 @@ namespace MasterGame.World
         {
             //TODO: Need to do this checking in a smarter way
             if(position.X < 0 || position.Y < 0 ||
-              position.X >= 4 || position.Y >= 4)
+              position.X >= cols || position.Y >= rows)
             {
                 return null;
             }
@@ -31,9 +34,9 @@ namespace MasterGame.World
         public void ResetTiles()
         {
             //This method should only run if the game restarts
-            for(int y = 0; y < 4; y++)
+            for(int y = 0; y < rows; y++)
             {
-                for(int x = 0; x < 4; x++)
+                for(int x = 0; x < cols; x++)
                 {
                     GetTileAtLocation(x, y).Occupied = false;
                 }
