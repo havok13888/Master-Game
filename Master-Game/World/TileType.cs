@@ -5,6 +5,7 @@
         Unknown,
         Grass,
         Lava,
-        Water
+        Water,
+        Void,
     }
 }
