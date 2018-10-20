@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+using System.Drawing;
 using MasterGame.World;
 
 namespace MasterGame.Manager
@@ -6,10 +6,6 @@ namespace MasterGame.Manager
     public class WorldManager
     {
         private Map CurrentMap;
-
-        public WorldManager()
-        {
-        }
 
         public void Initialize()
         {
@@ -38,7 +34,8 @@ namespace MasterGame.Manager
             return false;
         }
 
-        public void ResetTileWhenGameRestarts() {
+        public void ResetTileWhenGameRestarts()
+        {
             //Call a method in the current Map Class that resets the tiles
             CurrentMap.ResetTiles();
         }
