@@ -8,5 +8,6 @@ namespace MasterGame.Entities
         Player,
         Human,
         Stone,
+        Enemy
     }
 }
