@@ -58,6 +58,7 @@
     <Compile Include="World\WaterTile.cs" />
     <Compile Include="World\VoidTile.cs" />
     <Compile Include="World\JsonMapData.cs" />
+    <Compile Include="Entities\Treasure.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Maps\TreasureHunterTimBasicMap.json" />
