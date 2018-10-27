@@ -13,11 +13,10 @@ namespace MasterGame.World
         private const string MapsDir = "/Assets/Maps/";
         private static string MainFilePath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
         private List<BaseTile> CurrentMap = new List<BaseTile>();
-        private int rows = -1;
-        private int cols = -1;
 
         public void LoadMap()
         {
+            CurrentMap.Clear();
             //TODO; Build map selector
             SelectAndBuildMap();
         }
@@ -79,15 +78,19 @@ namespace MasterGame.World
                     newTile.Y = tile.yCoord;
                     CurrentMap.Add(newTile);
                 }
+                else
+                {
+                    CurrentMap.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Maps.BuildMap: Unknown tile type!");
+                    return;
+                }
             }
 
             CurrentMap.Sort((leftTile, rightTile) => 
                             leftTile.X <= rightTile.X &&
                             leftTile.Y <= rightTile.Y ? 
                             1 : -1);
-
-            rows = loadedMapData.rows;
-            cols = loadedMapData.cols;
         }
 
         private BaseTile GetTileAtLocation(int xCor, int yCor)
