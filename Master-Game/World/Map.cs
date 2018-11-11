@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Drawing;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace MasterGame.World
 {
     public class Map
     {
         private const string MapsDir = "/Assets/Maps/";
+        private static string MainFilePath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
         private List<BaseTile> CurrentMap = new List<BaseTile>();
         private int rows = -1;
         private int cols = -1;
@@ -16,7 +18,8 @@ namespace MasterGame.World
         public void LoadMap()
         {
             //TODO; Build map selector
-            BuildMap(LoadMapFromFile("Jay01.json"));
+            string userSelectedMap = SelectMap();
+            BuildMap(LoadMapFromFile(userSelectedMap));
         }
 
         public BaseTile TileAt(Point position)
@@ -41,8 +44,7 @@ namespace MasterGame.World
                 return null;
             }
 
-            string filePath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory())) + 
-                                MapsDir + fileName;
+            string filePath = MainFilePath + MapsDir + fileName;
 
             if (!File.Exists(filePath))
             {
@@ -98,6 +100,37 @@ namespace MasterGame.World
                 return TileFactory.CreateTile(TileType.Void);
             }
             return tile;
+        }
+
+        private string SelectMap()
+        {
+            string selectedMap = "";
+            Console.WriteLine("");
+            Console.WriteLine("Select a map number!");
+            string[] mapFiles = Directory.GetFiles(MainFilePath + MapsDir, "*.json").Select(Path.GetFileName).ToArray();
+            int numberOfMaps = mapFiles.Length;
+            for (int i = 0; i < numberOfMaps; i++)
+            {
+                Console.WriteLine(i + " - " + mapFiles[i]);
+            }
+
+            int userInputMap = -1;
+            while (userInputMap < 0 | userInputMap >= numberOfMaps)
+            {
+                string userInput = Console.ReadKey(true).KeyChar.ToString();
+                bool isNumber = int.TryParse(userInput, out userInputMap);
+                if (isNumber & (userInputMap >= 0 & userInputMap < numberOfMaps))
+                {
+                    selectedMap = mapFiles[userInputMap];
+                }
+                else
+                {
+                    userInputMap = -1;
+                    Console.WriteLine("Hmm... I do not understand your input. That is not an option. Please try again!");
+                }
+            }
+
+            return selectedMap;
         }
     }
 }
