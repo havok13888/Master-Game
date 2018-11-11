@@ -4,6 +4,7 @@ using System.Drawing;
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading;
 
 namespace MasterGame.World
 {
@@ -18,7 +19,8 @@ namespace MasterGame.World
         public void LoadMap()
         {
             //TODO; Build map selector
-            string userSelectedMap = SelectMap();
+            string userSelectedMap = SelectMap();    
+
             BuildMap(LoadMapFromFile(userSelectedMap));
         }
 
@@ -122,14 +124,21 @@ namespace MasterGame.World
                 if (isNumber & (userInputMap >= 0 & userInputMap < numberOfMaps))
                 {
                     selectedMap = mapFiles[userInputMap];
+                    Console.WriteLine("");
+                    Console.WriteLine("You picked " + userInputMap.ToString());
+                    Console.WriteLine(selectedMap + " loaded!");
+                    Console.WriteLine("");
+                    Console.WriteLine("Loading...");
+                    Thread.Sleep(4000);
+                    Console.Clear();
                 }
                 else
                 {
                     userInputMap = -1;
+                    Console.WriteLine("");
                     Console.WriteLine("Hmm... I do not understand your input. That is not an option. Please try again!");
                 }
             }
-
             return selectedMap;
         }
     }
