@@ -9,7 +9,7 @@ namespace MasterGame.Manager
 
         public void Initialize()
         {
-            EntityList.Add(new PlayerEntity("PlayerOne", 100.0f));
+            EntityList.Add(new PlayerEntity("PlayerOne", 100.0f, 100.0f));
         }
 
         public BaseEntity GetPlayer()

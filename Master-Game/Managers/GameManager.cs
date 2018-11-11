@@ -119,7 +119,7 @@ namespace MasterGame.Manager
             BaseTile tile = MasterWorldManager.TileAt(player.Position);
             if (tile != null)
             {
-                player.HealthPoints -= tile.Damage;
+                player.AddDamage(tile.Damage);
             }
         }
 

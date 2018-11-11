@@ -7,18 +7,20 @@ namespace MasterGame.Entities
         public EntityType Type { get; }
         public string Name { get; }
         public float HealthPoints { get; set; }
+        public float MaxHealthPoints { get; set; }
         public bool CanCollide { get; }
         public bool CanMove { get; }
         public bool CanTakeDamage { get; }
         public bool PlayerControlled { get; }
         public Point Position;
 
-        public BaseEntity(EntityType type, string name, float healthPoints, 
+        public BaseEntity(EntityType type, string name, float healthPoints, float maxHealthPoints,
                           bool canCollide, bool canMove, bool canTakeDamage, bool isPlayerControlled)
         {
             Type = type;
             Name = name;
             HealthPoints = healthPoints;
+            MaxHealthPoints = maxHealthPoints;
             CanCollide = canCollide;
             CanMove = canMove;
             CanTakeDamage = canTakeDamage;
@@ -30,6 +32,16 @@ namespace MasterGame.Entities
         public bool isAlive()
         {
             return HealthPoints > 0.0f;
+        }
+
+        public void AddDamage(float appliedDamage)
+        {
+            HealthPoints -= appliedDamage;
+
+            if(HealthPoints > MaxHealthPoints)
+            {
+                HealthPoints = MaxHealthPoints;
+            }
         }
     }
 }
