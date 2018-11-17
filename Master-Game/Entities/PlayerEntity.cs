@@ -5,8 +5,8 @@ namespace MasterGame.Entities
 {
     public class PlayerEntity : BaseEntity
     {
-        public PlayerEntity(string name, float healthPoints)
-           : base(EntityType.Player, name, healthPoints, true, true, true, true)
+        public PlayerEntity(string name, float healthPoints, float maxHealthPoints)
+           : base(EntityType.Player, name, healthPoints, maxHealthPoints, true, true, true, true)
         {
         }
 
