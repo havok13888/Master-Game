@@ -39,5 +39,10 @@ namespace MasterGame.Manager
             //Call a method in the current Map Class that resets the tiles
             CurrentMap.ResetTiles();
         }
+
+        public Map GetCurrentMap()
+        {
+            return CurrentMap;
+        }
     }
 }

@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Master-Game", "Master-Game\Master-Game.csproj", "{75941D2D-C846-488E-A78B-984E3A6DCC18}"
 EndProject
 Global
@@ -13,5 +14,11 @@ Global
 		{75941D2D-C846-488E-A78B-984E3A6DCC18}.Debug|x86.Build.0 = Debug|x86
 		{75941D2D-C846-488E-A78B-984E3A6DCC18}.Release|x86.ActiveCfg = Release|x86
 		{75941D2D-C846-488E-A78B-984E3A6DCC18}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85178F33-3638-42C9-AE08-FEE1185A6878}
 	EndGlobalSection
 EndGlobal

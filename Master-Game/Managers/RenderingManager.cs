@@ -38,9 +38,13 @@ namespace MasterGame.Manager
             Point currentPosition = new Point(0, 0);
             Point playerPosition = new Point(player.Position.X, player.Position.Y);
 
-            for (int y = 0; y < 4; y++)
+            int[] currentMapDim = MasterWorldManager.GetCurrentMap().GetMapDim();
+
+            int currentMapRows = currentMapDim[0];
+            int currentMapCols = currentMapDim[1];
+            for (int y = 0; y < currentMapRows; y++)
             {
-                for (int x = 0; x < 4; x++)
+                for (int x = 0; x < currentMapCols; x++)
                 {
                     currentPosition.X = x;
                     currentPosition.Y = y;
@@ -63,6 +67,10 @@ namespace MasterGame.Manager
                         else if(tile.Type == TileType.Water)
                         {
                             Console.Write(" W ");
+                        }
+                        else if(tile.Type == TileType.Void)
+                        {
+                            Console.Write(" % ");
                         }
                     }
                 }
