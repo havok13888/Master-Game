@@ -37,10 +37,24 @@ namespace MasterGame.Manager
                 return;
             }
 
-            if (command == InputCommand.RestartGame)
+            if (command == InputCommand.RestartGameSameMap)
             {
-                Console.WriteLine("Lets go!");
-                ResetGame(ref player);
+                if (MasterWorldManager.GetCurrentMap() == null)
+                {
+                    MasterWorldManager.Initialize();
+                }
+                else
+                {
+                    ResetGame(ref player);
+                }
+
+                MasterGameState = GameState.Running;
+            }
+
+            if (command == InputCommand.RestartGameDifferentMap)
+            {
+                MasterWorldManager.Initialize();
+                player.Reset();
                 MasterGameState = GameState.Running;
             }
 
@@ -128,8 +142,6 @@ namespace MasterGame.Manager
             player.Reset();
             //Reset tiles
             MasterWorldManager.ResetTileWhenGameRestarts();
-            MasterWorldManager.SelectNewMapWhenGameRestarts();
-            //TODO: MasterWorldManager.MapSelector
         }
     }
 }

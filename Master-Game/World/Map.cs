@@ -112,6 +112,8 @@ namespace MasterGame.World
         private string SelectMap()
         {
             string selectedMap = "";
+            Console.Clear();
+            Console.WriteLine("Let's go!");
             Console.WriteLine("");
             Console.WriteLine("Select a map number!");
             string[] mapFiles = Directory.GetFiles(MainFilePath + MapsDir, "*.json").Select(Path.GetFileName).ToArray();

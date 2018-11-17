@@ -27,7 +27,7 @@ namespace MasterGame.Manager
                         if (Console.ReadKey(true).Key == ConsoleKey.Y)
                         {
                             startGame = false;
-                            InputCommandList.Add(InputCommand.RestartGame);
+                            InputCommandList.Add(InputCommand.RestartGameDifferentMap);
                             break;
                         }
                         else if (Console.ReadKey(true).Key == ConsoleKey.X)
@@ -89,11 +89,15 @@ namespace MasterGame.Manager
             }
             else if (userInputString.Equals("y"))
             {
-                return InputCommand.RestartGame;
+                return InputCommand.RestartGameDifferentMap;
             }
             else if (userInputString.Equals("p"))
             {
                 return InputCommand.Stay;
+            }
+            else if (userInputString.Equals("z"))
+            {
+                return InputCommand.RestartGameSameMap;
             }
 
             return InputCommand.Unknown;
