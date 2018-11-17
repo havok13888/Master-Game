@@ -75,7 +75,7 @@ namespace MasterGame.Manager
         {
             if (player.isAlive())
             {
-                Console.WriteLine("HP: " + player.HealthPoints);
+                Console.WriteLine("HP: " + player.HealthPoints + " / " + player.MaxHealthPoints);
                 Console.WriteLine("Where to next?");
             }
             else
