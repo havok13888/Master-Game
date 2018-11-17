@@ -68,6 +68,10 @@ namespace MasterGame.Manager
                         {
                             Console.Write(" W ");
                         }
+                        else if(tile.Type == TileType.Void)
+                        {
+                            Console.Write(" % ");
+                        }
                     }
                 }
                 Console.WriteLine("");
