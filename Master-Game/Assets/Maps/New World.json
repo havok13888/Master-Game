@@ -1,136 +1,143 @@
 ﻿{
-  "name":"New World",
-  "version":"1.0",
+  "name": "New World",
+  "version": "1.0",
+  "rows": 5,
+  "cols": 5,
   "tiles": [
     {
       "type": 1,
-      "x": 0,
-      "y": 0
+      "xCoord": 0,
+      "yCoord": 0
     },
     {
       "type": 2,
-      "x": 1,
-      "y": 0
+      "xCoord": 1,
+      "yCoord": 0
     },
     {
       "type": 1,
-      "x": 2,
-      "y": 0
+      "xCoord": 2,
+      "yCoord": 0
     },
     {
       "type": 2,
-      "x": 3,
-      "y": 0
-    },
-	{
-	  "type": 2,
-	  "x": 4,
-	  "y": 0
-	},
-    {
-      "type": 1,
-      "x": 0,
-      "y": 1
+      "xCoord": 3,
+      "yCoord": 0
     },
     {
       "type": 2,
-      "x": 1,
-      "y": 1
-    },
-    {
-      "type": 2,
-      "x": 2,
-      "y": 1
-    },
-    {
-      "type": 2,
-      "x": 3,
-      "y": 1
-    },
-	{
-	  "type": 3,
-	  "x": 4,
-	  "y": 1
-	},
-    {
-      "type": 1,
-      "x": 0,
-      "y": 2
+      "xCoord": 4,
+      "yCoord": 0
     },
     {
       "type": 1,
-      "x": 1,
-      "y": 2
-    },
-    {
-      "type": 1,
-      "x": 2,
-      "y": 2
+      "xCoord": 0,
+      "yCoord": 1
     },
     {
       "type": 2,
-      "x": 3,
-      "y": 2
-    },
-	{
-      "type": 2,
-      "x": 4,
-      "y": 2
+      "xCoord": 1,
+      "yCoord": 1
     },
     {
       "type": 2,
-      "x": 0,
-      "y": 3
+      "xCoord": 2,
+      "yCoord": 1
     },
     {
       "type": 2,
-      "x": 1,
-      "y": 3
+      "xCoord": 3,
+      "yCoord": 1
+    },
+    {
+      "type": 3,
+      "xCoord": 4,
+      "yCoord": 1
     },
     {
       "type": 1,
-      "x": 2,
-      "y": 3
+      "xCoord": 0,
+      "yCoord": 2
     },
     {
       "type": 1,
-      "x": 3,
-      "y": 3
+      "xCoord": 1,
+      "yCoord": 2
     },
-	{
+    {
       "type": 1,
-      "x": 4,
-      "y": 3
-    },
-	{
-	  "type": 3,
-      "x": 0,
-      "y": 4
+      "xCoord": 2,
+      "yCoord": 2
     },
     {
       "type": 2,
-      "x": 1,
-      "y": 4
+      "xCoord": 3,
+      "yCoord": 2
     },
     {
-      "type": 1,
-      "x": 2,
-      "y": 4
-    },
-    {
-      "type": 1,
-      "x": 3,
-      "y": 4
-    },
-	{
       "type": 2,
-      "x": 4,
-      "y": 4
+      "xCoord": 4,
+      "yCoord": 2
+    },
+    {
+      "type": 2,
+      "xCoord": 0,
+      "yCoord": 3
+    },
+    {
+      "type": 2,
+      "xCoord": 1,
+      "yCoord": 3
+    },
+    {
+      "type": 1,
+      "xCoord": 2,
+      "yCoord": 3
+    },
+    {
+      "type": 1,
+      "xCoord": 3,
+      "yCoord": 3
+    },
+    {
+      "type": 1,
+      "xCoord": 4,
+      "yCoord": 3
+    },
+    {
+      "type": 3,
+      "xCoord": 0,
+      "yCoord": 4
+    },
+    {
+      "type": 2,
+      "xCoord": 1,
+      "yCoord": 4
+    },
+    {
+      "type": 1,
+      "xCoord": 2,
+      "yCoord": 4
+    },
+    {
+      "type": 1,
+      "xCoord": 3,
+      "yCoord": 4
+    },
+    {
+      "type": 2,
+      "xCoord": 4,
+      "yCoord": 4
     }
   ],
-  "entities": [
-    {"type": 1, "name": "Chopper", "HealthPoints": 100.0, "x": 0, "y": 0}
-  ],
-  "rows": 5,
-  "columns": 5
+  "Entities": [
+    {
+      "type": 1,
+      "name": "Chopper",
+      "HealthPoints": 100.0,
+      "xCoord": 0,
+      "yCoord": 0
+    }
+  ]
+
 }
