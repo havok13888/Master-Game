@@ -34,6 +34,11 @@ namespace MasterGame.Manager
             return false;
         }
 
+        public void SelectNewMapWhenGameRestarts()
+        {
+            CurrentMap.SelectAndBuildMap();
+        }
+
         public void ResetTileWhenGameRestarts()
         {
             //Call a method in the current Map Class that resets the tiles

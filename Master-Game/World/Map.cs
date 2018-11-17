@@ -19,9 +19,7 @@ namespace MasterGame.World
         public void LoadMap()
         {
             //TODO; Build map selector
-            string userSelectedMap = SelectMap();    
-
-            BuildMap(LoadMapFromFile(userSelectedMap));
+            SelectAndBuildMap();
         }
 
         public BaseTile TileAt(Point position)
@@ -102,6 +100,13 @@ namespace MasterGame.World
                 return TileFactory.CreateTile(TileType.Void);
             }
             return tile;
+        }
+
+        public void SelectAndBuildMap()
+        {
+            string userSelectedMap = SelectMap();
+
+            BuildMap(LoadMapFromFile(userSelectedMap));
         }
 
         private string SelectMap()

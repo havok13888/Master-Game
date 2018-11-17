@@ -128,6 +128,8 @@ namespace MasterGame.Manager
             player.Reset();
             //Reset tiles
             MasterWorldManager.ResetTileWhenGameRestarts();
+            MasterWorldManager.SelectNewMapWhenGameRestarts();
+            //TODO: MasterWorldManager.MapSelector
         }
     }
 }
