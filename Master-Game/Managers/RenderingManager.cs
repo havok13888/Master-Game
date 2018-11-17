@@ -89,7 +89,7 @@ namespace MasterGame.Manager
             else
             {
                 Console.WriteLine("You died!");
-                Console.WriteLine("Type X to exit, Y to restart.");
+                Console.WriteLine("Type X to exit, Y to restart on a map of your choice, Z to restart on same map.");
             }
         }
     }

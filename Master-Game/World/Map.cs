@@ -19,9 +19,7 @@ namespace MasterGame.World
         public void LoadMap()
         {
             //TODO; Build map selector
-            string userSelectedMap = SelectMap();    
-
-            BuildMap(LoadMapFromFile(userSelectedMap));
+            SelectAndBuildMap();
         }
 
         public BaseTile TileAt(Point position)
@@ -104,9 +102,18 @@ namespace MasterGame.World
             return tile;
         }
 
+        public void SelectAndBuildMap()
+        {
+            string userSelectedMap = SelectMap();
+
+            BuildMap(LoadMapFromFile(userSelectedMap));
+        }
+
         private string SelectMap()
         {
             string selectedMap = "";
+            Console.Clear();
+            Console.WriteLine("Let's go!");
             Console.WriteLine("");
             Console.WriteLine("Select a map number!");
             string[] mapFiles = Directory.GetFiles(MainFilePath + MapsDir, "*.json").Select(Path.GetFileName).ToArray();

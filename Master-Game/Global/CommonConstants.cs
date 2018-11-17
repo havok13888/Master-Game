@@ -9,7 +9,8 @@
         MoveLeft,
         MoveRight,
         ExitGame,
-        RestartGame
+        RestartGameDifferentMap,
+        RestartGameSameMap
     }
 
     public enum GameState
