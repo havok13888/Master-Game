@@ -15,7 +15,6 @@ namespace MasterGame.World
             IsOpenForTransition = isOpenForTransition;
         }
 
-        // TODO: Need a method that was hold/pass the information and data needed for the next map. For example, if the player's health is 85 in the previousl map, it should be 80 in the next map
         /// <summary>
         /// This method will set the attribute for if the transition tile is open (i.e., = true)
         /// </summary>
