@@ -18,6 +18,8 @@ namespace MasterGame.World
                     return new LavaTile();
                 case TileType.Water:
                     return new WaterTile();
+                case TileType.Transition:
+                    return new TransitionTile(true);
                 default:
                     return null;
             }

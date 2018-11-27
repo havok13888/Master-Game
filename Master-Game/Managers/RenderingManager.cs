@@ -72,6 +72,14 @@ namespace MasterGame.Manager
                         {
                             Console.Write(" % ");
                         }
+                        else if(tile.Type == TileType.Transition)
+                        {
+                            Console.Write(" Tr ");
+                        }
+                        else
+                        {
+                            Console.Write(" ERROR ");
+                        }
                     }
                 }
                 Console.WriteLine("");

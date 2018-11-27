@@ -24,5 +24,10 @@ namespace MasterGame.World
         {
             IsOpenForTransition = newCondition;
         }
+
+        public bool GetIsOpenForTransition()
+        {
+            return IsOpenForTransition;
+        }
     }
 }

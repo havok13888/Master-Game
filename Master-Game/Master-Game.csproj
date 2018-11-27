@@ -55,6 +55,7 @@
     <Compile Include="Managers\InputManager.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Managers\RenderingManager.cs" />
+    <Compile Include="World\TransitionTile.cs" />
     <Compile Include="World\WaterTile.cs" />
     <Compile Include="World\VoidTile.cs" />
     <Compile Include="World\JsonMapData.cs" />

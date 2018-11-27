@@ -109,6 +109,13 @@ namespace MasterGame.World
             BuildMap(LoadMapFromFile(userSelectedMap));
         }
 
+        public void BuildMap(String mapName)
+        {
+            Console.Clear();
+            CurrentMap.Clear();
+            BuildMap(LoadMapFromFile(mapName));
+        }
+
         private string SelectMap()
         {
             string selectedMap = "";

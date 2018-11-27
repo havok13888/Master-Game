@@ -79,6 +79,7 @@ namespace MasterGame.Manager
                 MoveEntities(ref player, command);
                 UpdateTiles(currentPosition, player.Position);
                 UpdateDamage(ref player);
+                CheckForPlayerTransition(currentPosition, player);
             }
         }
 
@@ -142,6 +143,20 @@ namespace MasterGame.Manager
             player.Reset();
             //Reset tiles
             MasterWorldManager.ResetTileWhenGameRestarts();
+        }
+
+        protected void CheckForPlayerTransition(Point playerPosition, PlayerEntity player)
+        {
+            BaseTile tile = MasterWorldManager.TileAt(playerPosition);
+            if(tile.Type == TileType.Transition)
+            {
+                TransitionTile tileTransition = tile as TransitionTile;
+                if (tileTransition.GetIsOpenForTransition())
+                {
+                    MasterWorldManager.TransitionToNewMap();
+                    MasterEntityManager.SetPlayer(player);
+                }
+            }
         }
     }
 }

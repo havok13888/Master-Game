@@ -24,5 +24,18 @@ namespace MasterGame.Manager
             }
             return null;
         }
+
+        public void SetPlayer(PlayerEntity newPlayer)
+        {
+            for(int i = 0; i < EntityList.Count; i++)
+            {
+                BaseEntity entity = EntityList[i];
+                if (entity.PlayerControlled)
+                {
+                    newPlayer.Position = new System.Drawing.Point(0, 0);
+                    EntityList[i] = newPlayer;
+                }
+            }
+        }
     }
 }
