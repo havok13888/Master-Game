@@ -109,7 +109,7 @@ namespace MasterGame.World
             BuildMap(LoadMapFromFile(userSelectedMap));
         }
 
-        public void BuildMap(String mapName)
+        public void BuildMapTransition(String mapName)
         {
             Console.Clear();
             CurrentMap.Clear();

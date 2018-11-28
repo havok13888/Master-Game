@@ -44,7 +44,7 @@ namespace MasterGame.Manager
         /// </summary>
         public void TransitionToNewMap()
         {
-            CurrentMap.BuildMap("JoshMap.json");
+            CurrentMap.BuildMapTransition("JoshMap.json");
         }
 
         public void ResetTileWhenGameRestarts()
