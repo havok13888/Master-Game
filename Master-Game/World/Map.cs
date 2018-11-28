@@ -111,7 +111,6 @@ namespace MasterGame.World
 
         public void BuildMapTransition(String mapName)
         {
-            Console.Clear();
             CurrentMap.Clear();
             BuildMap(LoadMapFromFile(mapName));
         }
