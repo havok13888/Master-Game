@@ -15,6 +15,7 @@ namespace MasterGame.World
         private List<BaseTile> CurrentMap = new List<BaseTile>();
         private int rows = -1;
         private int cols = -1;
+        private string MapName = "";
 
         public void LoadMap()
         {
@@ -63,6 +64,7 @@ namespace MasterGame.World
                 }
                 else
                 {
+                    MapName = fileName;
                     return JsonConvert.DeserializeObject<JsonMapData>(jsonStringData);
                 }                
             }
@@ -165,6 +167,11 @@ namespace MasterGame.World
                 Console.WriteLine("The rows or cols was not set when map was loaded. Exiting!");
                 return null;
             }
+        }
+
+        public string GetMapName()
+        {
+            return MapName;
         }
     }
 }
