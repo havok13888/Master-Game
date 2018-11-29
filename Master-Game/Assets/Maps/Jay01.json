@@ -23,7 +23,7 @@
       "type": 5,
       "xCoord": 3,
       "yCoord": 0,
-      "IsOpenForTransition": false
+      "IsOpenForTransition": true
     },
     {
       "type": 2,
