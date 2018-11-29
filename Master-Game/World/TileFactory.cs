@@ -19,7 +19,7 @@ namespace MasterGame.World
                 case TileType.Water:
                     return new WaterTile();
                 case TileType.Transition:
-                    return new TransitionTile(true);
+                    return new TransitionTile();
                 default:
                     return null;
             }

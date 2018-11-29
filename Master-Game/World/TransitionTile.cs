@@ -8,11 +8,10 @@ namespace MasterGame.World
 {
     class TransitionTile: BaseTile
     {
-        private bool IsOpenForTransition { get; set; }
+        private bool IsOpenForTransition;
 
-        public TransitionTile(bool isOpenForTransition): base(TileType.Transition,true,0.0f)
-        {
-            IsOpenForTransition = isOpenForTransition;
+        public TransitionTile(): base(TileType.Transition,true,0.0f)
+        {            
         }
 
         /// <summary>
