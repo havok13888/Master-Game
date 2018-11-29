@@ -74,9 +74,17 @@ namespace MasterGame.World
         {
             foreach(JsonTiles tile in loadedMapData.tiles)
             {
-                BaseTile newTile = TileFactory.CreateTile((TileType)tile.type);
-                if(newTile != null)
+                if ((TileType) tile.type == TileType.Transition)
                 {
+                    TransitionTile newTileTransition = TileFactory.CreateTile(TileType.Transition) as TransitionTile;
+                    newTileTransition.SetIsOpenForTransition(tile.IsOpenForTransition);
+                    newTileTransition.X = tile.xCoord;
+                    newTileTransition.Y = tile.yCoord;
+                    CurrentMap.Add(newTileTransition);
+                }
+                if(tile != null)
+                {
+                    BaseTile newTile = TileFactory.CreateTile((TileType)tile.type);
                     newTile.X = tile.xCoord;
                     newTile.Y = tile.yCoord;
                     CurrentMap.Add(newTile);
