@@ -38,10 +38,15 @@ namespace MasterGame.Manager
             Point currentPosition = new Point(0, 0);
             Point playerPosition = new Point(player.Position.X, player.Position.Y);
 
-            int[] currentMapDim = MasterWorldManager.GetCurrentMap().GetMapDim();
+            int[] currentMapDim = MasterWorldManager.GetCurrentMap().GetMapDimensions();
 
             int currentMapRows = currentMapDim[0];
             int currentMapCols = currentMapDim[1];
+            if(currentMapRows < 0 || currentMapRows < 0)
+            {
+                Console.WriteLine("The rows or cols was not set when map was loaded. Exiting!");
+                return;
+            }
             for (int y = 0; y < currentMapRows; y++)
             {
                 for (int x = 0; x < currentMapCols; x++)
