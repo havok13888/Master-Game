@@ -8,6 +8,7 @@ namespace MasterGame.Entities
         public string Name { get; }
         public float HealthPoints { get; set; }
         public float MaxHealthPoints { get; set; }
+        public float DefaultHealthPoints { get; }
         public bool CanCollide { get; }
         public bool CanMove { get; }
         public bool CanTakeDamage { get; }
@@ -21,6 +22,7 @@ namespace MasterGame.Entities
             Name = name;
             HealthPoints = healthPoints;
             MaxHealthPoints = maxHealthPoints;
+            DefaultHealthPoints = healthPoints;
             CanCollide = canCollide;
             CanMove = canMove;
             CanTakeDamage = canTakeDamage;
@@ -34,7 +36,7 @@ namespace MasterGame.Entities
             return HealthPoints > 0.0f;
         }
 
-        public void AddDamage(float appliedDamage)
+        public void UpdateProperties(float appliedDamage)
         {
             HealthPoints -= appliedDamage;
 
