@@ -17,7 +17,7 @@ namespace MasterGame.World
         /// <summary>
         /// This method will set the attribute for if the transition tile is open (i.e., = true)
         /// </summary>
-        /// <param name="newCondition"></param>
+        /// <param name="newCondition">True = Transition is Open</param>
         public void SetIsOpenForTransition(bool newCondition)
         {
             IsOpenForTransition = newCondition;
