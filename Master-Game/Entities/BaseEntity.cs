@@ -36,7 +36,7 @@ namespace MasterGame.Entities
             return HealthPoints > 0.0f;
         }
 
-        public void AddDamage(float appliedDamage)
+        public void UpdateProperties(float appliedDamage)
         {
             HealthPoints -= appliedDamage;
 
