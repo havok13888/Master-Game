@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -58,6 +58,7 @@
     <Compile Include="World\WaterTile.cs" />
     <Compile Include="World\VoidTile.cs" />
     <Compile Include="World\JsonMapData.cs" />
+    <Compile Include="Entities\TreasureEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Maps\Mateo01.json" />
