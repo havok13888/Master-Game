@@ -61,6 +61,8 @@
     <Compile Include="Entities\Treasure.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Maps\Mateo01.json" />
+    <None Include="Assets\Maps\New World.json" />
     <None Include="Assets\Maps\TreasureHunterTimBasicMap.json" />
     <None Include="Assets\Maps\Jay01.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

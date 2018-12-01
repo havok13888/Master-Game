@@ -1,16 +1,16 @@
 ﻿{
-  "name": "Basic Treasure Hunter map",
+  "name": "New World",
   "version": "1.0",
-  "rows": 4,
-  "cols": 4,
-  "Tiles": [
+  "rows": 5,
+  "cols": 5,
+  "tiles": [
     {
-      "type": 3,
+      "type": 1,
       "xCoord": 0,
       "yCoord": 0
     },
     {
-      "type": 1,
+      "type": 2,
       "xCoord": 1,
       "yCoord": 0
     },
@@ -20,32 +20,42 @@
       "yCoord": 0
     },
     {
-      "type": 3,
+      "type": 2,
       "xCoord": 3,
       "yCoord": 0
     },
     {
-      "type": 3,
+      "type": 2,
+      "xCoord": 4,
+      "yCoord": 0
+    },
+    {
+      "type": 1,
       "xCoord": 0,
       "yCoord": 1
     },
     {
-      "type": 1,
+      "type": 2,
       "xCoord": 1,
       "yCoord": 1
     },
     {
-      "type": 1,
+      "type": 2,
       "xCoord": 2,
       "yCoord": 1
     },
     {
-      "type": 1,
+      "type": 2,
       "xCoord": 3,
       "yCoord": 1
     },
     {
       "type": 3,
+      "xCoord": 4,
+      "yCoord": 1
+    },
+    {
+      "type": 1,
       "xCoord": 0,
       "yCoord": 2
     },
@@ -55,7 +65,7 @@
       "yCoord": 2
     },
     {
-      "type": 2,
+      "type": 1,
       "xCoord": 2,
       "yCoord": 2
     },
@@ -63,42 +73,71 @@
       "type": 2,
       "xCoord": 3,
       "yCoord": 2
+    },
+    {
+      "type": 2,
+      "xCoord": 4,
+      "yCoord": 2
+    },
+    {
+      "type": 2,
+      "xCoord": 0,
+      "yCoord": 3
+    },
+    {
+      "type": 2,
+      "xCoord": 1,
+      "yCoord": 3
+    },
+    {
+      "type": 1,
+      "xCoord": 2,
+      "yCoord": 3
+    },
+    {
+      "type": 1,
+      "xCoord": 3,
+      "yCoord": 3
+    },
+    {
+      "type": 1,
+      "xCoord": 4,
+      "yCoord": 3
     },
     {
       "type": 3,
       "xCoord": 0,
-      "yCoord": 3
+      "yCoord": 4
     },
     {
       "type": 2,
       "xCoord": 1,
-      "yCoord": 3
+      "yCoord": 4
     },
     {
-      "type": 2,
+      "type": 1,
       "xCoord": 2,
-      "yCoord": 3
+      "yCoord": 4
     },
     {
       "type": 1,
       "xCoord": 3,
-      "yCoord": 3
+      "yCoord": 4
+    },
+    {
+      "type": 2,
+      "xCoord": 4,
+      "yCoord": 4
     }
   ],
   "Entities": [
     {
       "type": 1,
-      "name": "Indiana",
+      "name": "Chopper",
       "HealthPoints": 100.0,
-      "xCoord": 1,
-      "yCoord": 1
-    },
-    {
-      "type": 2,
-      "name": "enemy",
-      "healthPoints": 200.0,
-      "xCoord": 1,
+      "xCoord": 0,
       "yCoord": 0
     }
   ]
+
 }

@@ -29,7 +29,6 @@ namespace MasterGame.Manager
 
         protected void LoadManagers()
         {
-            MasterWorldManager.Initialize();
             MasterEntityManager.Initialize();
         }
 
