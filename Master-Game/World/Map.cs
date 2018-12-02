@@ -165,16 +165,9 @@ namespace MasterGame.World
             return selectedMap;
         }
 
-        public int[] GetMapDim()
+        public int[] GetMapDimensions()
         {
-            if(rows != -1 & cols != -1)
-            {
-                return new int[] { rows, cols };
-            } else
-            {
-                Console.WriteLine("The rows or cols was not set when map was loaded. Exiting!");
-                return null;
-            }
+            return new int[] { rows, cols };
         }
 
         public string GetMapName()

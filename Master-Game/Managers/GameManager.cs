@@ -134,7 +134,7 @@ namespace MasterGame.Manager
             BaseTile tile = MasterWorldManager.TileAt(player.Position);
             if (tile != null)
             {
-                player.AddDamage(tile.Damage);
+                player.UpdateProperties(tile.Damage);
             }
         }
 
