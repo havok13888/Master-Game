@@ -13,6 +13,11 @@ namespace MasterGame.Entities
         public void Reset()
         {
             HealthPoints = DefaultHealthPoints;
+            ResetPosition();
+        }
+
+        public void ResetPosition()
+        {
             Position.X = 0;
             Position.Y = 0;
         }

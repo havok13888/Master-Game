@@ -15,6 +15,7 @@ namespace MasterGame.World
         private List<BaseTile> CurrentMap = new List<BaseTile>();
         private int rows = -1;
         private int cols = -1;
+        private string MapName = "";
 
         public void LoadMap()
         {
@@ -63,6 +64,7 @@ namespace MasterGame.World
                 }
                 else
                 {
+                    MapName = fileName;
                     return JsonConvert.DeserializeObject<JsonMapData>(jsonStringData);
                 }                
             }
@@ -72,9 +74,17 @@ namespace MasterGame.World
         {
             foreach(JsonTiles tile in loadedMapData.tiles)
             {
-                BaseTile newTile = TileFactory.CreateTile((TileType)tile.type);
-                if(newTile != null)
+                if ((TileType) tile.type == TileType.Transition)
                 {
+                    TransitionTile newTileTransition = TileFactory.CreateTile(TileType.Transition) as TransitionTile;
+                    newTileTransition.IsOpenForTransition = tile.IsOpenForTransition;
+                    newTileTransition.X = tile.xCoord;
+                    newTileTransition.Y = tile.yCoord;
+                    CurrentMap.Add(newTileTransition);
+                }
+                if(tile != null)
+                {
+                    BaseTile newTile = TileFactory.CreateTile((TileType)tile.type);
                     newTile.X = tile.xCoord;
                     newTile.Y = tile.yCoord;
                     CurrentMap.Add(newTile);
@@ -109,6 +119,12 @@ namespace MasterGame.World
             BuildMap(LoadMapFromFile(userSelectedMap));
         }
 
+        public void BuildMapTransition(String mapName)
+        {
+            CurrentMap.Clear();
+            BuildMap(LoadMapFromFile(mapName));
+        }
+
         private string SelectMap()
         {
             string selectedMap = "";
@@ -136,7 +152,7 @@ namespace MasterGame.World
                     Console.WriteLine(selectedMap + " loaded!");
                     Console.WriteLine("");
                     Console.WriteLine("Loading...");
-                    Thread.Sleep(4000);
+                    Thread.Sleep(2000);
                     Console.Clear();
                 }
                 else
@@ -152,6 +168,11 @@ namespace MasterGame.World
         public int[] GetMapDimensions()
         {
             return new int[] { rows, cols };
+        }
+
+        public string GetMapName()
+        {
+            return MapName;
         }
     }
 }

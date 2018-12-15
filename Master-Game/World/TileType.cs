@@ -7,5 +7,6 @@
         Lava,
         Water,
         Void,
+        Transition,
     }
 }

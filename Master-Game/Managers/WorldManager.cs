@@ -39,6 +39,14 @@ namespace MasterGame.Manager
             CurrentMap.SelectAndBuildMap();
         }
 
+        /// <summary>
+        /// This method will be used to transition the player from one map to another
+        /// </summary>
+        public void TransitionToNewMap()
+        {
+            CurrentMap.BuildMapTransition("JoshMap.json");
+        }
+
         public void ResetTileWhenGameRestarts()
         {
             //Call a method in the current Map Class that resets the tiles

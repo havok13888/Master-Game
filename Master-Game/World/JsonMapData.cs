@@ -5,6 +5,7 @@
         public int type;
         public int xCoord;
         public int yCoord;
+        public bool IsOpenForTransition; //Only Used for transition tiles
     }
 
     public class JsonEntities

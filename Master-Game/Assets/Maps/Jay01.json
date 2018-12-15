@@ -20,9 +20,10 @@
       "yCoord": 0
     },
     {
-      "type": 1,
+      "type": 5,
       "xCoord": 3,
-      "yCoord": 0
+      "yCoord": 0,
+      "IsOpenForTransition": true
     },
     {
       "type": 2,

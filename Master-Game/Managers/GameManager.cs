@@ -76,13 +76,17 @@ namespace MasterGame.Manager
             if (MasterGameState == GameState.Running)
             {
                 Point currentPosition = player.Position;
-                MoveEntities(ref player, command);
+                MoveEntities(player, command);
                 UpdateTiles(currentPosition, player.Position);
-                UpdateDamage(ref player);
+                UpdateDamage(player);
+                if (ReadyForPlayerTransition(currentPosition))
+                {
+                    TransitionMap(player);
+                }
             }
         }
 
-        protected void MoveEntities(ref PlayerEntity player, InputCommand command)
+        protected void MoveEntities(PlayerEntity player, InputCommand command)
         {
             Point currentPosition = player.Position; 
             Point nextPosition = GetNextPosition(currentPosition, command);
@@ -128,7 +132,7 @@ namespace MasterGame.Manager
             }
         }
 
-        protected void UpdateDamage(ref PlayerEntity player)
+        protected void UpdateDamage(PlayerEntity player)
         {
             BaseTile tile = MasterWorldManager.TileAt(player.Position);
             if (tile != null)
@@ -142,6 +146,27 @@ namespace MasterGame.Manager
             player.Reset();
             //Reset tiles
             MasterWorldManager.ResetTileWhenGameRestarts();
+        }
+
+        protected bool ReadyForPlayerTransition(Point playerPosition)
+        {
+            BaseTile tile = MasterWorldManager.TileAt(playerPosition);
+            if(tile.Type == TileType.Transition)
+            {
+                TransitionTile tileTransition = tile as TransitionTile;
+                if (tileTransition.IsOpenForTransition)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        protected void TransitionMap(PlayerEntity player)
+        {
+            MasterWorldManager.TransitionToNewMap();
+            player.ResetPosition();
         }
     }
 }
