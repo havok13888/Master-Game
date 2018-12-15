@@ -77,7 +77,7 @@ namespace MasterGame.World
                 if ((TileType) tile.type == TileType.Transition)
                 {
                     TransitionTile newTileTransition = TileFactory.CreateTile(TileType.Transition) as TransitionTile;
-                    newTileTransition.SetIsOpenForTransition(tile.IsOpenForTransition);
+                    newTileTransition.IsOpenForTransition = tile.IsOpenForTransition;
                     newTileTransition.X = tile.xCoord;
                     newTileTransition.Y = tile.yCoord;
                     CurrentMap.Add(newTileTransition);

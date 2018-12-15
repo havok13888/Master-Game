@@ -151,7 +151,7 @@ namespace MasterGame.Manager
             if(tile.Type == TileType.Transition)
             {
                 TransitionTile tileTransition = tile as TransitionTile;
-                if (tileTransition.GetIsOpenForTransition())
+                if (tileTransition.IsOpenForTransition)
                 {
                     MasterWorldManager.TransitionToNewMap();
                     MasterEntityManager.SetPlayer(player);
