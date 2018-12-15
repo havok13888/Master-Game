@@ -152,7 +152,7 @@ namespace MasterGame.World
                     Console.WriteLine(selectedMap + " loaded!");
                     Console.WriteLine("");
                     Console.WriteLine("Loading...");
-                    Thread.Sleep(4000);
+                    Thread.Sleep(2000);
                     Console.Clear();
                 }
                 else
