@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Timers;
 using MasterGame.Manager;
+using MasterGame.World;
 
 namespace MasterGame
 {
@@ -8,6 +9,11 @@ namespace MasterGame
     {
         public static void Main(string[] args)
         {
+            OpenTK.GameWindow window = new OpenTK.GameWindow(1000, 1000);
+            MainGame game = new MainGame(window);
+
+            window.Run(1.0 / 60.0);
+            /*
             SystemManager globalGameManager = new SystemManager();
 
             Console.WriteLine("Welcome to the game!\n");
@@ -20,6 +26,7 @@ namespace MasterGame
                 globalGameManager.ProcessGame();
                 globalGameManager.ProcessGraphics();
             }
+            */
         }
     }
 }
