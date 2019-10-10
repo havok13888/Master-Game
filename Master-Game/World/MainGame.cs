@@ -32,17 +32,46 @@ namespace MasterGame.World
         {
             GL.ClearColor(Color.CornflowerBlue); // Set the color of the backgorund
             GL.Clear(ClearBufferMask.ColorBufferBit);
-            GL.Begin(PrimitiveType.Triangles);
+            //GL.Begin(PrimitiveType.Triangles);
+
             //Triangle 1
+            /*
             GL.Vertex2(0, 0);
             GL.Vertex2(1, 0);
             GL.Vertex2(0, 1);
+            */
             //Triangle 2
+            /*
             GL.Vertex2(0, 0);
             GL.Vertex2(-1, 0);
             GL.Vertex2(0, -1);
-            GL.End();
+            */
+            //GL.End();
 
+            for(int squareNumber = 1; squareNumber <= 10; squareNumber++)
+            {
+                // Make squre along the x axies
+                float centerLocation = (float)squareNumber * 0.2f - .95f;
+
+                GL.Begin(PrimitiveType.Polygon);
+
+                GL.Vertex3(centerLocation - 0.05, - 0.05, 0);
+                GL.Vertex3(centerLocation - 0.05, 0.05, 0);
+                GL.Vertex3(centerLocation + 0.05, 0.05, 0);
+                GL.Vertex3(centerLocation + 0.05, - 0.05, 0);
+
+                GL.End();
+            }
+            /*
+            GL.Begin(PrimitiveType.Polygon);
+
+            GL.Vertex3(0, 0, 0);
+            GL.Vertex3(0.5, 0, 0);
+            GL.Vertex3(0.5, .75, 0);
+            GL.Vertex3(0, .75, 0);
+           
+            GL.End();
+            */
             //Drawings will go here
 
             window.SwapBuffers(); //Swaps the screens to display what we drew
