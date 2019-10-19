@@ -10,9 +10,9 @@ namespace MasterGame
         public static void Main(string[] args)
         {
             OpenTK.GameWindow window = new OpenTK.GameWindow(1000, 1000);
-            MainGame game = new MainGame(window);
+            MainGame game = new MainGame(window,5,8);
 
-            window.Run(1.0 / 60.0);
+            window.Run(1.0 / 60.0); // Not sure what this code means but it works\.
             /*
             SystemManager globalGameManager = new SystemManager();
 
